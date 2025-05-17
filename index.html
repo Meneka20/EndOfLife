@@ -1,0 +1,224 @@
+import { useState } from 'react';
+
+const Dashboard = () => {
+  const [activeTab, setActiveTab] = useState('case');
+  
+  const sections = {
+    case: {
+      title: 'Case History',
+      content: (
+        <div>
+          <p>An 84-year-old male, retired school principal, is brought into the Emergency Department by ambulance following a collapse at home. His wife, visibly shaken, tells the paramedics that he had complained of chest discomfort in the morning but refused to go to the hospital. He has advanced heart failure, chronic kidney disease, and mild dementia. He was discharged just last week after a prolonged hospital stay for pneumonia, during which he voiced to his family that he "doesn't want any more machines or tubes."</p>
+          <p>On arrival, our patient is pulseless and not breathing. The paramedics have already started CPR. The resuscitation team is called.</p>
+          <p>As you enter the resus bay, you see a tired body, fragile limbs, and a grieving wife clutching a crumpled folder. Inside is an unsigned Advance Directive form and a note from his GP suggesting he had discussed a DNACPR recommendation, but it was never formally completed. The daughter, just arriving, is distressed and insists that "everything be done."</p>
+          <p className="font-bold mt-4">The team begins to question:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Are we respecting his wishes?</li>
+            <li>Is continuing CPR in his best interest? Would it be beneficial and avoid harm?</li>
+            <li>In a resource limited setting, with likely poor outcome, would continuing resuscitation be fair by all?</li>
+            <li>Who should make the decision when the paperwork is incomplete, and opinions differ?</li>
+            <li>Should CPR have been started at all, and if so, when should it stop?</li>
+            <li>Should the family be present?</li>
+            <li>How should everyone be supported afterwards?</li>
+          </ul>
+        </div>
+      )
+    },
+    ethics: {
+      title: 'Ethical Principles',
+      content: (
+        <div>
+          <p className="font-semibold mb-4">Let us consider some of the common ethical principles that are relevant and for each we will see how it applies with our patient.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-2">Beneficence</h3>
+          <p>Requires us to act for the patient's benefit. This means starting CPR promptly. However, in our case, his frailty, multiple co-morbidities, and recent expressions of not wanting further aggressive care raise questions about benefit. Continuing CPR may not restore him to a quality of life he would have valued. Beneficence here may mean recognising when the harms of intervention outweigh the potential for meaningful recovery. It also reminds us that caring for the wider community, for example, by promoting public access defibrillation, is part of our ethical duty to benefit others.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-2">Non-Maleficence</h3>
+          <p>This principle reminds us to "first, do no harm." CPR can cause significant injury and distress, especially when the likelihood of success is extremely low. For our patient, whose chance of survival with good neurological outcome is poor, continuing resuscitation might prolong suffering rather than relieve it. In such cases, persisting with CPR risks causing more harm than good, violating this core principle.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-2">Justice</h3>
+          <p>This is about fairness and equitable care. It means that everyone who may benefit from CPR should have access to it regardless of age, disability, or background. At the same time, justice involves using limited resources wisely. In our case, prolonged resuscitation with minimal chance of success may divert time and resources away from others in greater need. Justice also means applying consistent, unbiased standards to resuscitation decisions.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-2">Autonomy</h3>
+          <p>This gives patients the right to make their own informed decisions about their care. Our patient had previously expressed a clear wish not to undergo further invasive treatment, although a formal document was not in place. Respecting autonomy means seriously considering those expressed wishes, even if they are not formally documented, especially when communicated consistently and clearly. It also means recognising when families may struggle with this particularly when emotions are high and the patient can no longer speak for themselves.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <p>In real-life resuscitation, these principles may seem to pull in different directions. The art of ethical decision-making lies in balancing them, always centred on the patient, their wishes, and their best interests.</p>
+        </div>
+      )
+    },
+    acp: {
+      title: 'Advance Care Planning',
+      content: (
+        <div>
+          <h3 className="font-bold mb-3">Advance Care Planning (ACP)</h3>
+          <p>Allows adults to make decisions about their future medical treatment based on their goals, beliefs, and values. It enables individuals to think ahead, discuss, and document their preferences including whether they would want CPR if their heart were to stop.</p>
+          <p>Those involved in these conversations should receive appropriate training, and patients and families should be given clear, accessible information to support their involvement. ACP is a key aspect of patient-centred care, respecting autonomy, and relieving families of the burden of decision-making if the patient later loses capacity.</p>
+          <p>These decisions should be clearly documented, regularly reviewed, and easily accessible when needed.</p>
+          <p>Within ACP decision on whether to resuscitate and different treatment care plans are included.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-3">DNACPR (Do Not Attempt Cardiopulmonary Resuscitation)</h3>
+          <p>A DNACPR decision is a specific clinical recommendation not to start CPR if the patient's heart stops. It applies only to CPR — and does not mean "do not treat."</p>
+          <p>Patients with a DNACPR order may still receive active treatment, including:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Oxygen therapy</li>
+            <li>Antibiotics</li>
+            <li>IV fluids</li>
+            <li>Pain relief</li>
+            <li>Nutritional support</li>
+            <li>Intensive unit care</li>
+          </ul>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-3">Treatment Escalation Plans (TEP)</h3>
+          <p>Advance care planning also includes Treatment Escalation Plans (TEPs) which outline a person's preferences and agreed level of care in the event of deterioration. These documents help clarify what treatments are considered appropriate including whether to provide fluids, oxygen, non-invasive ventilation, or intensive care.</p>
+        </div>
+      )
+    },
+    decisions: {
+      title: 'Decision Making',
+      content: (
+        <div>
+          <h3 className="font-bold mb-3">Who should make decisions on resuscitation and who should be consulted?</h3>
+          <p>The decision to withhold CPR should be made in advance with all stakeholders, including the treating clinical team, the patient (if they have capacity) and, where appropriate, their family or representatives. Patients have legal and ethical rights to be involved. Families should be involved for support and context, but do not have legal decision-making authority. If a patient lacks capacity, legal proxies or processes must be followed. In the case of disagreement, careful discussion or a second opinion is usually sufficient; formal legal intervention should be a last resort.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-3">How should the DNACPR decision be documented and communicated?</h3>
+          <p>The decision and rationale should be clearly documented in the medical record, ideally using a standardised form or template. This includes who was involved in the decision and the date. It must be communicated to all relevant healthcare providers and, unless the patient refuses, to the patient's relatives. Confidentiality should be maintained according to the patient's preferences. Good internal communication is vital to ensure that in the event of cardiac arrest, the decision is immediately identifiable.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-3">Should family members be included in the resuscitation area?</h3>
+          <p>Allowing family members to be present during resuscitation is increasingly recognised as an element of patient-centred care and can positively impact their emotional and psychological well-being. However, concerns remain about space limitations, potential interference with clinical care, staff well-being, and team performance. The decision should be made based on the specific context, and if family members are present, they must be supported by a staff member trained for this role.</p>
+        </div>
+      )
+    },
+    cpr: {
+      title: 'CPR Decisions',
+      content: (
+        <div>
+          <h3 className="font-bold mb-3">When should CPR not be started?</h3>
+          <p>CPR should not be initiated when:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>The safety of the healthcare team cannot be assured.</li>
+            <li>There are unequivocal signs of irreversible death (e.g., rigor mortis, decapitation).</li>
+            <li>A valid advance decision or DNACPR order exists.</li>
+            <li>The risks clearly outweigh the potential benefits (e.g., end-stage disease with poor quality of life).</li>
+          </ul>
+          <p className="mt-2">In general, an unwitnessed cardiac arrest with a non-shockable rhythm in a patient with severe co-morbidities may justify withholding CPR.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-3">When should Termination of Resuscitation (TOR) happen?</h3>
+          <p>Resuscitation may be stopped when:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>It becomes clear that further efforts will not be successful.</li>
+            <li>There is prolonged asystole (typically >20 minutes) with no reversible cause.</li>
+            <li>New information during resuscitation indicates CPR is not in the patient's best interests.</li>
+            <li>In out-of-hospital settings, locally validated TOR rules can guide the decision. These should not be used for in-hospital cardiac arrest.</li>
+          </ul>
+          <p className="mt-2">The decision to stop CPR is made by the team leader, with input from all members of the team. Persistently low ETCO2 (&lt;10 mmHg) may be used in conjunction with other factors to guide this decision. However, pupillary response, blood gas results or cardiac ultrasound should not be used to aid in decision making as they are unreliable.</p>
+          
+          <div className="border-b-2 border-gray-300 my-4"></div>
+          
+          <h3 className="font-bold mb-3">How to confirm death after stopping resuscitation?</h3>
+          <p>After stopping resuscitation:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Observe for at least 5 minutes for return of spontaneous cardiac or respiratory activity.</li>
+            <li>Confirm absence of mechanical cardiac function:
+              <ul className="list-circle pl-6 mt-1 space-y-1">
+                <li>No central pulse</li>
+                <li>No heart sounds</li>
+                <li>Asystole on ECG (optional)</li>
+                <li>Absence of pulsatile arterial waveform (if invasive monitoring present)</li>
+                <li>No cardiac motion on echocardiography (optional)</li>
+              </ul>
+            </li>
+            <li>Then assess neurological signs: absent pupillary light reflex, corneal reflexes, and motor response to supraorbital pressure.</li>
+          </ul>
+          <p className="mt-2">Time of death is recorded at the point when all criteria are fulfilled.</p>
+        </div>
+      )
+    },
+    debrief: {
+      title: 'Team Debriefing',
+      content: (
+        <div>
+          <h3 className="font-bold mb-3">How should the team debrief after the resuscitation?</h3>
+          <p>A debrief should take place as soon as practical after the event. It should:</p>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>Support reflection on both clinical and non-clinical aspects.</li>
+            <li>Highlight strengths and areas for improvement.</li>
+            <li>Provide emotional support and psychological safety.</li>
+            <li>Encourage open, blame-free discussion focused on learning.</li>
+            <li>Involve bystanders (in OHCA or IHCA) where appropriate, with emotional support provided.</li>
+          </ul>
+          <p className="mt-2">The team leader is responsible for ensuring the debrief happens. Debriefing promotes team cohesion, learning, and well-being, and should be a routine part of post-resuscitation care.</p>
+        </div>
+      )
+    },
+    summary: {
+      title: 'Key Learning Points',
+      content: (
+        <div>
+          <h3 className="font-bold mb-3">Chapter Summary: Key Learning Points</h3>
+          <ul className="list-disc pl-6 mt-2 space-y-1">
+            <li>There are important ethical principles that should be applied in decision making during end-of-life situations.</li>
+            <li>Patients should be encouraged to take part in advance care planning, and these should be clearly documented for easy access.</li>
+            <li>Family presence during resuscitation should be supported.</li>
+            <li>Every resuscitation should be followed by a debriefing to support all those who were involved.</li>
+          </ul>
+        </div>
+      )
+    }
+  };
+
+  return (
+    <div className="flex flex-col h-screen">
+      <div className="bg-blue-700 text-white p-4">
+        <h1 className="text-2xl font-bold">End of Life Care Decisions</h1>
+      </div>
+      
+      <div className="flex flex-grow overflow-hidden">
+        {/* Navigation */}
+        <div className="w-64 bg-gray-100 overflow-y-auto flex-shrink-0">
+          <div className="p-2">
+            <p className="text-sm text-gray-500 font-medium px-2 mb-1">NAVIGATION</p>
+            {Object.entries(sections).map(([key, section]) => (
+              <button
+                key={key}
+                className={`w-full text-left p-2 my-1 rounded text-sm font-medium ${
+                  activeTab === key ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-200'
+                }`}
+                onClick={() => setActiveTab(key)}
+              >
+                {section.title}
+              </button>
+            ))}
+          </div>
+        </div>
+        
+        {/* Content */}
+        <div className="flex-grow p-6 overflow-y-auto bg-white">
+          <h2 className="text-xl font-bold mb-4">{sections[activeTab].title}</h2>
+          {sections[activeTab].content}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;
